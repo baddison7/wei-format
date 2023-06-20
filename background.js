@@ -1,6 +1,6 @@
 chrome.contextMenus.create({
     id: "ContextMenu",
-    title: "Wai to Eth",
+    title: "Wei to Eth",
     contexts: ["selection"],
 });
 

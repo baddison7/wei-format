@@ -7,3 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(cutString)
     });
 });
+
+//add titles
+//add icon
+//open popup
+//round numbers
+//pick the truncation
