@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Wei to Eth",
+    "version": "1.0",
+    "description": "a converter of Wai to Eth",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "contextMenus",
+        "storage",
+        "nativeMessaging",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    }
+}
