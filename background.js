@@ -59,7 +59,7 @@ function hexConverter(hex) {
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
     if (info.menuItemId === "Wei to Eth") {
         let convertedEth = convertWei(info.selectionText)
-        chrome.storage.local.set({ Eth: convertedEth })
+        chrome.storage.local.set({ Str: convertedEth })
     }
 })
 
@@ -69,6 +69,6 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
         console.log(convertedHex)
         let cutHex = convertWei(convertedHex)
         console.log(cutHex)
-        chrome.storage.local.set({ Hex: cutHex })
+        chrome.storage.local.set({ Str: cutHex })
     }
 })
