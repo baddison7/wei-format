@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    chrome.storage.sync.get(["key"]).then((result) => {
-        console.log("Value currently is " + result.key);
-        cutString = result.key;
+    chrome.storage.local.get(["Eth"]).then((result) => {
+        convertedEth = result.Eth
+        const text = (document.getElementById("Eth").textContent = `Eth: ${convertedEth}`)
+    })
 
-        const text = (document.getElementById("blankText").textContent = cutString);
-        console.log(cutString);
-    });
-});
+    chrome.storage.local.get(["Hex"]).then((result) => {
+        convertedHex = result.Hex
+        const text = (document.getElementById("Hex").textContent = `Hex: ${convertedHex}`)
+    })
+})
 
 //add titles
 //add icon
