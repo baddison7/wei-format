@@ -66,9 +66,7 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
     if (info.menuItemId === "Hex Converter") {
         let convertedHex = hexConverter(info.selectionText)
-        console.log(convertedHex)
         let cutHex = convertWei(convertedHex)
-        console.log(cutHex)
         chrome.storage.local.set({ Str: cutHex })
     }
 })
