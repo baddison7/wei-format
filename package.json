@@ -1,0 +1,22 @@
+{
+  "name": "wei-format",
+  "version": "0.0.1",
+  "description": "Chrome extension that formats crypto numbers",
+  "main": "background.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baddison7/wei-format.git"
+  },
+  "author": "Baxter Addison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baddison7/wei-format/issues"
+  },
+  "homepage": "https://github.com/baddison7/wei-format#readme",
+  "devDependencies": {
+    "jest": "^29.6.1"
+  }
+}
