@@ -26,6 +26,9 @@ For more detailed instructions, see Chrome's [Loading an unpacked Chrome extensi
 ## Development
 
 ```
+# Prettier
+npm run prettier
+
 # Run test
 npm run test
 
