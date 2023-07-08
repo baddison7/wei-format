@@ -1,26 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-    chrome.storage.local.get(["Str"]).then((result) => {
+document.addEventListener('DOMContentLoaded', function () {
+    chrome.storage.local.get(['Str']).then((result) => {
         storedStr = result.Str
         alert(storedStr)
         console.log(storedStr)
         const text = (document.getElementById(
-            "Eth"
+            'Eth'
         ).textContent = `${storedStr}`)
     })
 
-    const form = document.getElementById("decimalsForm")
+    const form = document.getElementById('decimalsForm')
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault() // Prevent the default form submission
 
         // decimals
-        const decimalsNameInput = document.getElementById("decimals")
+        const decimalsNameInput = document.getElementById('decimals')
         const decimalsNameValue = decimalsNameInput.value
         chrome.storage.local.set({ decimals: decimalsNameValue })
 
         // display decimals
         const displayDecimalsNameInput =
-            document.getElementById("displayDecimals")
+            document.getElementById('displayDecimals')
         const displayDecimalsNameValue = displayDecimalsNameInput.value
         chrome.storage.local.set({ displayDecimals: displayDecimalsNameValue })
     })

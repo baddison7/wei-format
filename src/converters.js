@@ -8,18 +8,18 @@ function convertWei(num, decimals, displayDecimals) {
         wholeDigets = str.substring(0, str.length - decimals)
 
         // Reverse the string for easier manipulation
-        wholeDigets = wholeDigets.split("").reverse().join("")
+        wholeDigets = wholeDigets.split('').reverse().join('')
 
         // Insert commas after every three characters
-        wholeDigets = wholeDigets.replace(/(\d{3})/g, "$1,")
+        wholeDigets = wholeDigets.replace(/(\d{3})/g, '$1,')
 
         // Remove trailing comma if present
-        if (wholeDigets.slice(-1) === ",") {
+        if (wholeDigets.slice(-1) === ',') {
             wholeDigets = wholeDigets.slice(0, -1)
         }
 
         // Reverse the string back to its original order
-        wholeDigets = wholeDigets.split("").reverse().join("")
+        wholeDigets = wholeDigets.split('').reverse().join('')
 
         // selects only the deciamls
         smallDigets = str.substring(str.length - decimals, str.length)
@@ -27,17 +27,17 @@ function convertWei(num, decimals, displayDecimals) {
         smallDigets = smallDigets.substring(0, displayDecimals)
         //
         // Insert commas after every three characters
-        smallDigets = smallDigets.replace(/(\d{3})/g, "$1,")
+        smallDigets = smallDigets.replace(/(\d{3})/g, '$1,')
 
         // Remove trailing comma if present
-        if (smallDigets.slice(-1) === ",") {
+        if (smallDigets.slice(-1) === ',') {
             smallDigets = smallDigets.slice(0, -1)
         }
 
-        formattedNumb = wholeDigets + "." + smallDigets
+        formattedNumb = wholeDigets + '.' + smallDigets
 
         // Remove trailing comma if present
-        if (formattedNumb.slice(-1) === ".") {
+        if (formattedNumb.slice(-1) === '.') {
             formattedNumb = formattedNumb.slice(0, -1)
         }
 
@@ -48,20 +48,20 @@ function convertWei(num, decimals, displayDecimals) {
         //truncating digets
         smallDigets = smallDigets.substring(0, displayDecimals)
 
-        smallDigets = smallDigets.padStart(displayDecimals, "0")
+        smallDigets = smallDigets.padStart(displayDecimals, '0')
 
         // Insert commas after every three characters
-        smallDigets = smallDigets.replace(/(\d{3})/g, "$1,")
+        smallDigets = smallDigets.replace(/(\d{3})/g, '$1,')
 
         // Remove trailing comma if present
-        if (smallDigets.slice(-1) === ",") {
+        if (smallDigets.slice(-1) === ',') {
             smallDigets = smallDigets.slice(0, -1)
         }
 
-        formattedNumb = "0." + smallDigets
+        formattedNumb = '0.' + smallDigets
 
         // Remove trailing comma if present
-        if (formattedNumb.slice(-1) === ".") {
+        if (formattedNumb.slice(-1) === '.') {
             formattedNumb = formattedNumb.slice(0, -1)
         }
 
@@ -72,16 +72,16 @@ function convertWei(num, decimals, displayDecimals) {
 function convertHex(hex) {
     // Validate the input
     if (!hex.match(/^(0x)?[0-9A-Fa-f]+$/)) {
-        throw new Error("Invalid hexadecimal input")
+        throw new Error('Invalid hexadecimal input')
     }
 
-    if (hex.startsWith("0x")) {
+    if (hex.startsWith('0x')) {
         hex = hex.slice(2)
     }
 
     // Convert the hexadecimal to decimal
     let decimal = 0
-    const hexDigits = "0123456789ABCDEF"
+    const hexDigits = '0123456789ABCDEF'
     hex = hex.toUpperCase()
 
     for (let i = 0; i < hex.length; i++) {

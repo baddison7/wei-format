@@ -1,1 +1,9 @@
-body{width:125px;height:25px;margin:5px}p{margin:0;font-size:medium}
+body {
+  width: 125px;
+  height: 25px;
+  margin: 5px;
+}
+p {
+  margin: 0;
+  font-size: medium;
+}

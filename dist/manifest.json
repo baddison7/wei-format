@@ -1,1 +1,9 @@
-{"manifest_version":3,"name":"Wei to Eth","version":"1.0","description":"a converter of Wei to Eth","action":{"default_popup":"popup.0bc176a5.html"},"permissions":["contextMenus","storage","activeTab"],"background":{"service_worker":"background.bb916115.js"}}
+{
+  "manifest_version": 3,
+  "name": "Wei to Eth",
+  "version": "1.0",
+  "description": "a converter of Wei to Eth",
+  "action": { "default_popup": "popup.0bc176a5.html" },
+  "permissions": ["contextMenus", "storage", "activeTab"],
+  "background": { "service_worker": "background.bb916115.js" }
+}
