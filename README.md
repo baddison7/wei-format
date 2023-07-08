@@ -22,3 +22,14 @@ For more detailed instructions, see Chrome's [Loading an unpacked Chrome extensi
 - Select a number on a web page
 - Right-click and select "Wei to Eth"
 - Click the Chrome plug-in icon
+
+## Development
+
+```
+# Run test
+npm run test
+
+# Build
+npm run clean
+npm run build
+```
