@@ -5,6 +5,14 @@ function convertWei(num, decimals, displayDecimals) {
     let wholeDigets
     let smallDigets
     let formattedNumb
+    let negitive
+
+    if (str.charAt(0) === '-') {
+        str = str.substring(1)
+        negitive = true
+    } else {
+        negitive = false
+    }
 
     if (str.length > decimals) {
         wholeDigets = str.substring(0, str.length - decimals)
@@ -38,6 +46,11 @@ function convertWei(num, decimals, displayDecimals) {
 
         formattedNumb = wholeDigets + '.' + smallDigets
 
+        // Adds negitives back in
+        if (negitive == true) {
+            formattedNumb = '-' + formattedNumb
+        }
+
         // Remove trailing comma if present
         if (formattedNumb.slice(-1) === '.') {
             formattedNumb = formattedNumb.slice(0, -1);
@@ -61,6 +74,11 @@ function convertWei(num, decimals, displayDecimals) {
         }
 
         formattedNumb = '0.' + smallDigets
+
+        // Adds negitives back in
+        if (negitive == true) {
+            formattedNumb = '-' + formattedNumb
+        }
 
         // Remove trailing comma if present
         if (formattedNumb.slice(-1) === '.') {
