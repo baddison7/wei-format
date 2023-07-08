@@ -14,16 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault() // Prevent the default form submission
 
         // decimals
-        const decimalsNameInput = document.getElementById('decimals')
-        const decimalsNameValue = decimalsNameInput.value
-        chrome.storage.local.set({ decimals: decimalsNameValue })
+        const decimalsInput = document.getElementById('decimals');
+        const decimalsValue = decimalsInput.value;
+        console.log(decimalsValue)
+        chrome.storage.local.set({ decimals: decimalsValue })
 
         // display decimals
-        const displayDecimalsNameInput =
-            document.getElementById('displayDecimals')
-        const displayDecimalsNameValue = displayDecimalsNameInput.value
-        chrome.storage.local.set({ displayDecimals: displayDecimalsNameValue })
-    })
+        const displayDecimalsInput = document.getElementById('displayDecimals');
+        const displayDecimalsValue = displayDecimalsInput.value;
+        console.log(displayDecimalsValue)
+        chrome.storage.local.set({ displayDecimals: displayDecimalsValue })
+    });
 })
 
 //add icon

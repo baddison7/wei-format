@@ -18,10 +18,12 @@ const config = {
 }
 chrome.storage.local.get(['decimals']).then((result) => {
     config.decimals = parseInt(result.decimals)
+    console.log(config.decimals)
 })
 
 chrome.storage.local.get(['displayDecimals']).then((result) => {
     config.displayDecimals = parseInt(result.displayDecimals)
+    console.log(config.displayDecimals)
 })
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
