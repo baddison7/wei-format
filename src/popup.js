@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     chrome.storage.local.get(['Str']).then((result) => {
         storedStr = result.Str
-        alert(storedStr)
         console.log(storedStr)
-        const text = (document.getElementById(
-            'Eth'
-        ).textContent = `${storedStr}`)
+        const text = (document.getElementById('Eth').textContent = storedStr)
     })
 
     const form = document.getElementById('decimalsForm')
@@ -26,6 +23,3 @@ document.addEventListener('DOMContentLoaded', function () {
         chrome.storage.local.set({ displayDecimals: displayDecimalsValue })
     })
 })
-
-//add icon
-//open popup

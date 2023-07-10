@@ -2,19 +2,52 @@
   <head>
     <title>Popup</title>
     <script src="popup.js"></script>
-    <link rel="stylesheet" href="main.css" />
+    <style> 
+      body {
+        height: 100px;
+        width: 200px;
+        margin: 2px;
+        background-color: rgb(32,33,36);
+        color: white;
+      }
+
+      p {
+        margin-bottom: 10px;
+        font-size: medium;
+      }
+      input{  
+        width: 50px;
+        color: white;
+        background-color: rgb(32,33,36);
+        border: 1px solid grey;
+        margin-top: 2px;
+      }
+      button{
+        width: 50px;
+        color: white;
+        background-color: rgb(32,33,36);
+        border: 1px solid grey;
+      }
+      div{
+        display: flex;
+      }
+    </style>
   </head>
 
   <body>
     <p id="Eth"></p>
     <form id="decimalsForm">
-      <label for="decimals">where Decimal point</label>
-      <input type="number" id="decimals" name="decimals" />
-
-      <label for="displayDecimals">Decimal Places</label>
-      <input type="number" id="displayDecimals" name="displayDecimals" />
-
-      <button type="submit">Submit</button>
+      <div>
+        <label for="decimals" style="width: 150px;">Decimals</label>
+        <input type="number" id="decimals" name="decimals" value='18'/><br>
+      </div>
+      <div>
+        <label for="displayDecimals" style="width: 150px;">Display Decimals</label>
+        <input type="number" id="displayDecimals" name="displayDecimals" value='18'/><br>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <button type="submit" >Set</button>
+    </div>
     </form>
   </body>
 </html>
