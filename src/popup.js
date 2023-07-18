@@ -1,8 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     chrome.storage.local.get(['Str']).then((result) => {
-        storedStr = result.Str
-        console.log(storedStr)
+        const storedStr = result.Str
         const text = (document.getElementById('Eth').textContent = storedStr)
+    })
+
+    let decimalsValue
+    chrome.storage.local.get(['decimals']).then((result) => {
+        decimalsValue = result.decimals
+        console.log(decimalsValue)
+        document.getElementById('decimals').value = decimalsValue
+    })
+
+    let displayDecimalsValue
+    chrome.storage.local.get(['displayDecimals']).then((result) => {
+        displayDecimalsValue = result.displayDecimals
+        console.log(displayDecimalsValue)
+        document.getElementById('displayDecimals').value = displayDecimalsValue
     })
 
     const form = document.getElementById('decimalsForm')
@@ -11,15 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault() // Prevent the default form submission
 
         // decimals
-        const decimalsInput = document.getElementById('decimals')
-        const decimalsValue = decimalsInput.value
-        console.log(decimalsValue)
+        let decimalsValue = document.getElementById('decimals').value
         chrome.storage.local.set({ decimals: decimalsValue })
 
         // display decimals
-        const displayDecimalsInput = document.getElementById('displayDecimals')
-        const displayDecimalsValue = displayDecimalsInput.value
-        console.log(displayDecimalsValue)
+        let displayDecimalsValue =
+            document.getElementById('displayDecimals').value
         chrome.storage.local.set({ displayDecimals: displayDecimalsValue })
     })
 })

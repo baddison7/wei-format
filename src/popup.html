@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Popup</title>
-    <script src="popup.js"></script>
+    <script src="popup.js" type="module"></script>
     <style> 
       body {
         height: 100px;
@@ -39,11 +39,11 @@
     <form id="decimalsForm">
       <div>
         <label for="decimals" style="width: 150px;">Decimals</label>
-        <input type="number" id="decimals" name="decimals" value='18'/><br>
+        <input type="number" id="decimals" name="decimals"/><br>
       </div>
       <div>
         <label for="displayDecimals" style="width: 150px;">Display Decimals</label>
-        <input type="number" id="displayDecimals" name="displayDecimals" value='18'/><br>
+        <input type="number" id="displayDecimals" name="displayDecimals"/><br>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center;">
       <button type="submit" >Set</button>
