@@ -10,5 +10,8 @@
   "background": {
     "service_worker": "background.js",
     "type": "module"
+  },
+  "icons": {
+    "256": "Logo256.png"
   }
 }
