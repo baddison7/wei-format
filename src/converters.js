@@ -1,4 +1,4 @@
-function convertWei(num, decimals, displayDecimals) {
+function convertWei(num, decimalsValue, displayDecimalsValue) {
     let str = num.toString()
     let wholeDigets
     let smallDigets
@@ -12,8 +12,8 @@ function convertWei(num, decimals, displayDecimals) {
         negitive = false
     }
 
-    if (str.length > decimals) {
-        wholeDigets = str.substring(0, str.length - decimals)
+    if (str.length > decimalsValue) {
+        wholeDigets = str.substring(0, str.length - decimalsValue)
 
         // Reverse the string for easier manipulation
         wholeDigets = wholeDigets.split('').reverse().join('')
@@ -30,9 +30,9 @@ function convertWei(num, decimals, displayDecimals) {
         wholeDigets = wholeDigets.split('').reverse().join('')
 
         // selects only the deciamls
-        smallDigets = str.substring(str.length - decimals, str.length)
+        smallDigets = str.substring(str.length - decimalsValue, str.length)
         //truncating digets
-        smallDigets = smallDigets.substring(0, displayDecimals)
+        smallDigets = smallDigets.substring(0, displayDecimalsValue)
         //
         // Insert commas after every three characters
         smallDigets = smallDigets.replace(/(\d{3})/g, '$1,')
@@ -57,11 +57,11 @@ function convertWei(num, decimals, displayDecimals) {
         return formattedNumb
     } else {
         // selects only the deciamls
-        smallDigets = str.substring(str.length - decimals, str.length)
+        smallDigets = str.substring(str.length - decimalsValue, str.length)
         //truncating digets
-        smallDigets = smallDigets.substring(0, displayDecimals)
+        smallDigets = smallDigets.substring(0, displayDecimalsValue)
 
-        smallDigets = smallDigets.padStart(displayDecimals, '0')
+        smallDigets = smallDigets.padStart(displayDecimalsValue, '0')
 
         // Insert commas after every three characters
         smallDigets = smallDigets.replace(/(\d{3})/g, '$1,')
@@ -110,7 +110,17 @@ function convertHex(hex) {
     return decimal
 }
 
+function converter(preConverted, decimalsValue, displayDecimalsValue, conversionType) {
+    if ((conversionType = 'wei')) {
+        const convertedStr = convertWei(preConverted, decimalsValue, displayDecimalsValue)
+        return convertedStr
+    } else if ((conversionType = 'hex')) {
+        let convertedStr = convertHex(preConverted)
+        convertedStr = convertWei(convertedStr, decimalsValue, displayDecimalsValue)
+        return convertedStr
+    }
+}
+
 module.exports = {
-    convertWei,
-    convertHex,
+    converter,
 }
