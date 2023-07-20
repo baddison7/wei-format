@@ -1,7 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-
-  },
+  "editor.codeActionsOnSave": {},
   "prettier.configPath": ".prettierrc.yaml"
 }

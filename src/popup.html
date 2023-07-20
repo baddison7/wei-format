@@ -2,12 +2,12 @@
   <head>
     <title>Popup</title>
     <script src="popup.js" type="module"></script>
-    <style> 
+    <style>
       body {
         height: 100px;
         width: 250px;
         margin: 2px;
-        background-color: rgb(32,33,36);
+        background-color: rgb(32, 33, 36);
         color: white;
       }
 
@@ -15,23 +15,23 @@
         margin-bottom: 10px;
         font-size: medium;
       }
-      input{  
+      input {
         width: 50px;
         color: white;
-        background-color: rgb(32,33,36);
+        background-color: rgb(32, 33, 36);
         border: 1px solid grey;
         margin-top: 2px;
       }
-      button{
+      button {
         width: 50px;
         color: white;
-        background-color: rgb(32,33,36);
+        background-color: rgb(32, 33, 36);
         border: 1px solid grey;
       }
-      div{
+      div {
         display: flex;
       }
-      label{
+      label {
         width: 200px;
       }
     </style>
@@ -42,15 +42,19 @@
     <form id="decimalsForm">
       <div>
         <label for="decimals">Decimals</label>
-        <input type="number" id="decimals" name="decimals"/><br>
+        <input type="number" id="decimals" name="decimals" /><br />
       </div>
       <div>
         <label for="displayDecimals">Display Decimals</label>
-        <input type="number" id="displayDecimals" name="displayDecimals"/><br>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <button type="submit" >Set</button>
-    </div>
+        <input
+          type="number"
+          id="displayDecimals"
+          name="displayDecimals"
+        /><br />
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <button type="submit">Set</button>
+      </div>
     </form>
   </body>
 </html>
