@@ -69,4 +69,10 @@ describe('WEI Formatter', () => {
         expect(converter('-1234', 18, 18, 'wei')).toEqual('-0.000,000,000,000,001,234')
         expect(converter('-987654321', 18, 18, 'wei')).toEqual('-0.000,000,000,987,654,321')
     })
+    test('hexedecimal', () => {
+        expect(convertHex('a')).toEqual(10)
+        expect(convertHex('aa')).toEqual(170)
+        expect(convertHex('10029ee0121f8dec22679987978')).toEqual(20295386218748455875047348271480)
+        expect(convertHex('DE0B6B3A7640000')).toEqual(1000000000000000000)
+    })
 })

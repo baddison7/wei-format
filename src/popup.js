@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 conversionType
             )
 
-            let text = (document.getElementById('Eth').textContent = convertedStr)
+            // let text2 = (document.getElementById('preConvertedStr').textContent = preConverted)
+            let text1 = (document.getElementById('convertedStr').textContent = convertedStr)
         })
 
     const form = document.getElementById('decimalsForm')

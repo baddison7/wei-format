@@ -33,7 +33,6 @@ function convertWei(num, decimalsValue, displayDecimalsValue) {
         smallDigets = str.substring(str.length - decimalsValue, str.length)
         //truncating digets
         smallDigets = smallDigets.substring(0, displayDecimalsValue)
-        //
         // Insert commas after every three characters
         smallDigets = smallDigets.replace(/(\d{3})/g, '$1,')
 
@@ -91,6 +90,7 @@ function convertHex(hex) {
     // Validate the input
     if (!hex.match(/^(0x)?[0-9A-Fa-f]+$/)) {
         throw new Error('Invalid hexadecimal input')
+        console.log('Invalid hexadecimal input')
     }
 
     if (hex.startsWith('0x')) {
@@ -106,17 +106,16 @@ function convertHex(hex) {
         const digit = hexDigits.indexOf(hex[i])
         decimal = decimal * 16 + digit
     }
-
     return decimal
 }
 
 function converter(preConverted, decimalsValue, displayDecimalsValue, conversionType) {
-    if ((conversionType = 'wei')) {
+    if (conversionType === 'wei') {
         const convertedStr = convertWei(preConverted, decimalsValue, displayDecimalsValue)
         return convertedStr
-    } else if ((conversionType = 'hex')) {
-        let convertedStr = convertHex(preConverted)
-        convertedStr = convertWei(convertedStr, decimalsValue, displayDecimalsValue)
+    } else if (conversionType === 'hex') {
+        const convertedHex = convertHex(preConverted)
+        const convertedStr = convertWei(convertedHex, decimalsValue, displayDecimalsValue)
         return convertedStr
     }
 }

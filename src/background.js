@@ -12,7 +12,6 @@ chrome.contextMenus.create({
 chrome.contextMenus.onClicked.addListener(function (info) {
     if (info.menuItemId === 'Wei to Eth') {
         const preConverted = info.selectionText
-        console.log(preConverted)
         chrome.storage.local.set({
             selectedStr: preConverted,
             conversionType: 'wei',
