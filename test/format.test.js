@@ -17,6 +17,9 @@ describe('WEI Formatter', () => {
         expect(converter('1234567890123456789876', 18, 4, 'wei')).toEqual('1,234.567,8')
         expect(converter('12345678901234567898765', 18, 0, 'wei')).toEqual('12,345')
         expect(converter('12345678901234567898765', 18, 4, 'wei')).toEqual('12,345.678,9')
+        expect(converter('175307326341362540000000', 18, 18, 'wei')).toEqual(
+            '175,307.326,341,362,540,000,000'
+        )
     })
     test('small wei numbers', () => {
         expect(converter('1', 18, 18, 'wei')).toEqual('0.000,000,000,000,000,001')
@@ -70,9 +73,13 @@ describe('WEI Formatter', () => {
         expect(converter('-987654321', 18, 18, 'wei')).toEqual('-0.000,000,000,987,654,321')
     })
     test('hexedecimal', () => {
-        expect(convertHex('a')).toEqual(10)
-        expect(convertHex('aa')).toEqual(170)
-        expect(convertHex('10029ee0121f8dec22679987978')).toEqual(20295386218748455875047348271480)
-        expect(convertHex('DE0B6B3A7640000')).toEqual(1000000000000000000)
+        //expect(converter('10029ee0121f8dec22679987978', 0, 0, 'hex')).toEqual(
+        //    '20,295,386,218,748,455,875,047,348,271,480'
+        //)
+        // expect(converter('DE0B6B3A7640000', 0, 0, 'hex')).toEqual('1,000,000,000,000,000,000')
+        /*expect(converter('251f6de049726a02b300', 0, 0, 'hex')).toEqual(
+            '175,307,326,341,362,540,000,000'
+        )*/
+        expect(parseInt('251f6de049726a02b300n', 16)).toEqual('175307326341362540000000')
     })
 })

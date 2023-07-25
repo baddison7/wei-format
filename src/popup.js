@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             conversionType = result.selectedConversionType
             let decimalsValue = result.decimalsValue
             let displayDecimalsValue = result.displayDecimalsValue
+
             document.getElementById('displayDecimals').value = displayDecimalsValue
             document.getElementById('decimals').value = decimalsValue
 
@@ -44,6 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
             conversionType
         )
 
-        let text = (document.getElementById('Eth').textContent = convertedStr)
+        let text2 = (document.getElementById('convertedStr').textContent = convertedStr)
     })
 })

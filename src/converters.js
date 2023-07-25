@@ -86,40 +86,21 @@ function convertWei(num, decimalsValue, displayDecimalsValue) {
     }
 }
 
-function convertHex(hex) {
-    // Validate the input
-    if (!hex.match(/^(0x)?[0-9A-Fa-f]+$/)) {
-        throw new Error('Invalid hexadecimal input')
-        console.log('Invalid hexadecimal input')
-    }
-
-    if (hex.startsWith('0x')) {
-        hex = hex.slice(2)
-    }
-
-    // Convert the hexadecimal to decimal
-    let decimal = 0
-    const hexDigits = '0123456789ABCDEF'
-    hex = hex.toUpperCase()
-
-    for (let i = 0; i < hex.length; i++) {
-        const digit = hexDigits.indexOf(hex[i])
-        decimal = decimal * 16 + digit
-    }
-    return decimal
+module.exports = {
+    converter,
 }
 
 function converter(preConverted, decimalsValue, displayDecimalsValue, conversionType) {
-    if (conversionType === 'wei') {
-        const convertedStr = convertWei(preConverted, decimalsValue, displayDecimalsValue)
+    if (conversionType === 'hex') {
+        let convertedStr
+        if (preConverted.length % 2) {
+            convertedStr = '0' + preConverted
+        }
+        convertedStr = BigInt('0x' + convertedStr)
         return convertedStr
-    } else if (conversionType === 'hex') {
-        const convertedHex = convertHex(preConverted)
-        const convertedStr = convertWei(convertedHex, decimalsValue, displayDecimalsValue)
+    } else {
+        let convertedStr = BigInt(preConverted)
+        convertedStr = convertWei(preConverted, decimalsValue, displayDecimalsValue)
         return convertedStr
     }
-}
-
-module.exports = {
-    converter,
 }
