@@ -14,7 +14,7 @@ chrome.contextMenus.onClicked.addListener(function (info) {
         const preConverted = info.selectionText
         chrome.storage.local.set({
             selectedStr: preConverted,
-            conversionType: 'wei',
+            selectedConversionType: 'wei',
         })
     }
 })
