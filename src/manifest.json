@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Wei to Eth",
+  "name": "Chain-Converters",
   "version": "1.0",
-  "description": "a converter of Wei to Eth",
+  "description": "A chrome extension that converts blockchain numbers and timestamps",
   "action": {
     "default_popup": "popup.html"
   },

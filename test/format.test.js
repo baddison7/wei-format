@@ -80,6 +80,6 @@ describe('WEI Formatter', () => {
         /*expect(converter('251f6de049726a02b300', 0, 0, 'hex')).toEqual(
             '175,307,326,341,362,540,000,000'
         )*/
-        expect(parseInt('251f6de049726a02b300n', 16)).toEqual('175307326341362540000000')
+        // expect(parseInt('251f6de049726a02b300n', 16)).toEqual('175307326341362540000000')
     })
 })

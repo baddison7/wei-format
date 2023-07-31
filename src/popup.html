@@ -4,8 +4,8 @@
     <script src="popup.js" type="module"></script>
     <style>
       body {
-        height: 100px;
-        width: 250px;
+        height: 50px;
+        width: 300px;
         margin: 2px;
         background-color: rgb(32, 33, 36);
         color: white;
@@ -32,28 +32,30 @@
         display: flex;
       }
       label {
-        width: 200px;
+        width: 250px;
+      }
+      .set{
+        display: flex; 
+        flex-direction: column; 
+        align-items: center
       }
     </style>
   </head>
 
   <body>
-    <!-- <p id="preConvertedStr"></p> -->
     <p id="convertedStr"></p>
+    <p id="convertedStr2"></p>
+
     <form id="decimalsForm">
       <div>
         <label for="decimals">Decimals</label>
-        <input type="number" id="decimals" name="decimals" /><br />
+        <input type="number" min="0" id="decimals" name="decimals" /><br>
       </div>
       <div>
         <label for="displayDecimals">Display Decimals</label>
-        <input
-          type="number"
-          id="displayDecimals"
-          name="displayDecimals"
-        /><br />
+        <input type="number" min="0" id="displayDecimals" name="displayDecimals" /><br>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center">
+      <div class="set">
         <button type="submit">Set</button>
       </div>
     </form>

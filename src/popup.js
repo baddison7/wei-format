@@ -1,50 +1,46 @@
-const { converter } = require('./converters')
+const { convertWei, convertHex, convertUnix } = require('./converters')
 
 document.addEventListener('DOMContentLoaded', function () {
     let preConverted
     let conversionType
 
-    chrome.storage.local
-        .get(['selectedStr', 'selectedConversionType', 'decimalsValue', 'displayDecimalsValue'])
-        .then((result) => {
-            preConverted = result.selectedStr
-            conversionType = result.selectedConversionType
-            let decimalsValue = result.decimalsValue
-            let displayDecimalsValue = result.displayDecimalsValue
+    chrome.storage.local.get(['selectedStr', 'conversionType']).then((result) => {
+        preConverted = result.selectedStr
+        conversionType = result.conversionType
 
-            document.getElementById('displayDecimals').value = displayDecimalsValue
-            document.getElementById('decimals').value = decimalsValue
+        if (conversionType === 'wei' || conversionType === 'hex') {
+            chrome.storage.local.get(['decimals', 'displayDecimals']).then((result) => {
+                document.getElementById('displayDecimals').value = result.displayDecimals
+                document.getElementById('decimals').value = result.decimals
 
-            const convertedStr = converter(
-                preConverted,
-                decimalsValue,
-                displayDecimalsValue,
-                conversionType
-            )
+                let convertedWei = preConverted
+                if (conversionType === 'hex') {
+                    convertedWei = convertHex(convertedWei)
+                }
+                convertedWei = convertWei(convertedWei, result.decimals, result.displayDecimals)
+                document.getElementById('convertedStr').textContent = convertedWei
+            })
+        } else if (conversionType === 'unixTime') {
+            document.getElementById('decimalsForm').style.display = 'none'
+            const { currentTimeZone, UTC } = convertUnix(preConverted)
+            console.log(currentTimeZone)
+            console.log(UTC)
+            document.getElementById('convertedStr').textContent = currentTimeZone
+            document.getElementById('convertedStr2').textContent = UTC
+        }
+    })
 
-            // let text2 = (document.getElementById('preConvertedStr').textContent = preConverted)
-            let text1 = (document.getElementById('convertedStr').textContent = convertedStr)
-        })
-
-    const form = document.getElementById('decimalsForm')
-    form.addEventListener('submit', function (event) {
+    document.getElementById('decimalsForm').addEventListener('submit', function (event) {
         event.preventDefault() // Prevent the default form submission
+        const decimals = document.getElementById('decimals').value
+        const displayDecimals = document.getElementById('displayDecimals').value
+        chrome.storage.local.set({ decimals: decimals, displayDecimals: displayDecimals })
 
-        let decimalsValue = document.getElementById('decimals').value
-        let displayDecimalsValue = document.getElementById('displayDecimals').value
-
-        chrome.storage.local.set({
-            decimalsValue: decimalsValue,
-            displayDecimalsValue: displayDecimalsValue,
-        })
-
-        const convertedStr = converter(
-            preConverted,
-            decimalsValue,
-            displayDecimalsValue,
-            conversionType
-        )
-
-        let text2 = (document.getElementById('convertedStr').textContent = convertedStr)
+        let convertedWei = preConverted
+        if (conversionType === 'hex') {
+            convertedWei = convertHex(convertedWei)
+        }
+        convertedWei = convertWei(convertedWei, decimals, displayDecimals)
+        document.getElementById('convertedStr').textContent = convertedWei
     })
 })
